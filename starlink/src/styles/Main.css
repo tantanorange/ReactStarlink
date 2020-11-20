@@ -8,11 +8,10 @@
     top: 0;
     left: 0;
     height: 760px;
-    width: 420px;
     padding: 20px;
 }
 
 .right-side {
-    margin-left: 420px;
+    margin-left: 380px;
     height: 760px;
 }
