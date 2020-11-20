@@ -30,7 +30,7 @@ class SatSettingForm extends Component {
                     }
                 </Form.Item>
 
-                <Form.Item label={"Latitude(degrees)"}>
+                <Form.Item label="Latitude(degrees)">
                     {
                         getFieldDecorator("latitude", {
                             rules: [{
@@ -42,7 +42,7 @@ class SatSettingForm extends Component {
                     }
                 </Form.Item>
 
-                <Form.Item label={"Elevation(meters)"}>
+                <Form.Item label="Elevation(meters)">
                     {
                         getFieldDecorator("elevation", {
                             rules: [{
@@ -54,7 +54,7 @@ class SatSettingForm extends Component {
                     }
                 </Form.Item>
 
-                <Form.Item label={"Altitude(degrees)"}>
+                <Form.Item label="Altitude(degrees)">
                     {
                         getFieldDecorator("altitude", {
                             rules: [{
@@ -66,7 +66,7 @@ class SatSettingForm extends Component {
                     }
                 </Form.Item>
 
-                <Form.Item label={"Duration(seconds)"}>
+                <Form.Item label="Duration(seconds)">
                     {
                         getFieldDecorator("duration", {
                             rules: [{
@@ -78,7 +78,7 @@ class SatSettingForm extends Component {
                     }
                 </Form.Item>
 
-                <Form.Item classname={"show-nearby"}>
+                <Form.Item classname="show-nearby">
                     <Button type="primary" htmlType="submit" style={{textAlign: "center"}}>
                         Find Nearby Satellites
                     </Button>
