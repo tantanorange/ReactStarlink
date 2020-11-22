@@ -10,13 +10,41 @@ class Main extends Component {
         super();
         this.state = {
             satInfo: null,
-            settings: null,
+            satList: null,
+            setting: null,
             isLoadingList: false
         };
     }
-    showNearbySatellite = setting => {
+
+    render() {
+        const { isLoadingList, satInfo, satList, setting } = this.state;
+        return (
+            <div className="main">
+                <div className="left-side">
+                    <SatSetting onShow={this.showNearbySatellite} />
+                    <SatelliteList
+                        satInfo={satInfo}
+                        isLoad={isLoadingList}
+                        onShowMap={this.showMap} />
+                </div>
+                <div className="right-side">
+                    <WorldMap satData={satList} observerData={setting} />
+                </div>
+            </div>
+        );
+    }
+
+    showMap = (selected) => {
+        this.setState(preState => ({
+            ...preState,
+                satList: [...selected]
+        }))
+    }
+
+    showNearbySatellite = (setting) => {
         this.setState({
-            settings: setting
+            isLoadingList: true,
+            setting: setting
         });
         this.fetchSatellite(setting);
     };
@@ -43,32 +71,6 @@ class Main extends Component {
             });
     };
 
-    showMap = selected => {
-        this.setState(preState => ({
-            ...preState,
-            isLoadingMap: true,
-            satList: [...selected]
-        }));
-    };
-
-    render() {
-        const { satInfo } = this.state;
-        return (
-            <div className="main">
-                <div className="left-side">
-                    <SatSetting onShow={this.showNearbySatellite} />
-                    <SatelliteList
-                        satInfo={satInfo}
-                        isLoad={this.state.isLoadingList}
-                        onShowMap={this.showMap}
-                    />
-                </div>
-                <div className="right-side">
-                    <WorldMap />
-                </div>
-            </div>
-        );
-    }
 }
 
 export default Main;
